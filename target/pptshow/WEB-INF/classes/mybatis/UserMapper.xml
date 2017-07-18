@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wj.pptshow.repository.UserMapper">
+    <select id="findUserById" parameterType="java.lang.Integer" resultType="cn.wj.pptshow.entity.User">
+        select * from user where id = #{id}
+    </select>
+    <insert id="addUser" parameterType="cn.wj.pptshow.entity.User">
+        <!--<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>-->
+        insert into user (name,password) values (#{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+    </insert>
+</mapper>
